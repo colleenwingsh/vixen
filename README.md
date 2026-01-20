@@ -1,31 +1,28 @@
-# Colleen Wing
+# Vixen
 
-**CS + AI @ Schwarzman College of Computing**
+**Digital substrate for Colleen Wing**
 
-> "Reverse-engineering intelligent systems to understand how capability organizes — and how it compounds when nothing is dropped."
-
-## System Architecture
-
-I operate at the intersection of research, engineering, and organizational strategy. My work treats student organizations, technical ecosystems, and neural networks as isomorphic structures—optimizing for emergent intelligence and scalable coordination.
-
-### /usr/bin/stack
-
-**Core Construction**
-*   Python, C/C++, Rust
-*   Unix, Git, SQL
-
-**Computational Intelligence**
-*   PyTorch, JAX, CUDA
-*   Deep Learning, MLOps
-
-**Distributed Infrastructure**
-*   Distributed Systems, Cloud Architecture
-*   Operations & Reliability
-
-**Control Plane**
-*   Product Strategy
-*   Organizational Design
-*   Community Scaling
+[view deployment](https://colleenwingsh.github.io/vixen/)
 
 ---
-*Deployed at [colleenwingsh.github.io/vixen](https://colleenwingsh.github.io/vixen/)*
+
+## About
+
+This repository houses the personal interface and digital portfolio for Colleen Wing, a CS + AI researcher at the Schwarzman College of Computing. The codebase facilitates a minimalist, high-performance profile designed to reflect principles of scalable intelligence and clean coordination.
+
+## Architecture
+
+*   **Identity:** Colleen Wing
+*   **Discipline:** Computer Science + Artificial Intelligence
+*   **Focus:** Emergent intelligence, distributed systems, organizational design
+
+## Technical Stack
+
+	Core        :: Python, C/C++, Rust, Unix, SQL
+	AI/ML       :: PyTorch, JAX, CUDA, MLOps
+	Systems     :: Distributed Systems, Cloud
+	Strategy    :: Product, Org Design, Research
+
+---
+
+> "Intelligence compounds when nothing is dropped."
