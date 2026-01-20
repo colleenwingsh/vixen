@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --bg-color: #0c0c0c;
+    --screen-bg: #111;
+    --text-primary: #33ff33; /* Classic Terminal Green */
+    --text-secondary: #00cc00;
+    --text-highlight: #ccffcc;
+    --scanline-color: rgba(18, 16, 16, 0.5);
+    --glow: 0 0 5px var(--text-primary), 0 0 10px var(--text-primary);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'VT323', monospace;
+    height: 100vh;
+    overflow: hidden; /* For full screen monitor feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.monitor {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: relative;
+    padding: 20px;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    background: var(--screen-bg);
+    border: 2px solid #333;
+    border-radius: 10px;
+    position: relative;
+    overflow-y: auto; /* Allow scrolling content inside the screen */
+    box-shadow: 0 0 20px rgba(51, 255, 51, 0.1);
+}
+
+/* CRT Effects */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+        90deg, 
+        rgba(255, 0, 0, 0.06), 
+        rgba(0, 255, 0, 0.02), 
+        rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 2px, 3px 100%;
+    z-index: 10;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.95; }
+    20% { opacity: 0.99; }
+    25% { opacity: 0.95; }
+    30% { opacity: 0.9; }
+    35% { opacity: 0.96; }
+    40% { opacity: 0.98; }
+    45% { opacity: 0.95; }
+    50% { opacity: 0.99; }
+    55% { opacity: 0.93; }
+    60% { opacity: 0.9; }
+    65% { opacity: 0.96; }
+    70% { opacity: 1; }
+    75% { opacity: 0.97; }
+    80% { opacity: 0.95; }
+    85% { opacity: 0.92; }
+    90% { opacity: 0.96; }
+    95% { opacity: 0.98; }
+    100% { opacity: 0.94; }
+}
+
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography & Layout */
+header {
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--text-secondary);
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: var(--glow);
+    margin-bottom: 10px;
+}
+
+.status-line {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to { visibility: hidden; }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--text-primary);
+    padding-left: 15px;
+    color: var(--text-highlight);
+}
+
+h3 {
+    color: var(--text-highlight);
+    border-bottom: 1px dashed var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+
+/* Specific Section Styles */
+.bio-section, .stack-section, .philosophy {
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    border: 1px solid var(--text-secondary);
+    padding: 20px;
+    background: rgba(0, 20, 0, 0.3);
+}
+
+.category ul {
+    list-style: none;
+}
+
+.category li::before {
+    content: "> ";
+    color: var(--text-secondary);
+}
+
+.category li {
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.category li:hover {
+    color: var(--text-highlight);
+    text-shadow: var(--glow);
+    cursor: default;
+}
+
+.philosophy {
+    border-top: 1px solid var(--text-secondary);
+    padding-top: 20px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000; 
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary); 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary); 
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .content { padding: 20px; }
+    .grid { grid-template-columns: 1fr; }
+}
